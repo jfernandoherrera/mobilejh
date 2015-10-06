@@ -1,0 +1,42 @@
+﻿@model IEnumerable<listarproy.Models.ListUser>
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+<label></label>
+    <div class="box">
+        @Html.ActionLink("Crear lista nueva", "Create", null, new { @style = "color: #000000;" })
+    </div>
+
+
+@if (ViewBag.listLength == 0)
+{
+    <h2>Crea tu primera lista!</h2>
+    
+}
+else
+{
+<h2>Estas son tus listas!</h2>
+
+foreach (var item in Model)
+{
+
+    <div class ="tr">
+        
+        <ul class="nav navbar-nav">
+            <li class="grande">
+                @Html.DisplayFor(modelItem => item.Name)
+            </li>
+            <li class="rcorners6">@Html.ActionLink("Ir a lista!", "Index", "listas", new { Controller = "listas", item.Id }, null)</li>
+            @if(ViewBag.listLength>=2){
+            <li class="rcorners6">@Html.ActionLink("Importar datos", "Details", new { id = item.Id })</li>
+
+            }
+            <li class="rcorners6">@Html.ActionLink("Cambiar nombre", "Edit", new { id = item.Id }) </li>
+            <li class="rcorners6">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
+        </ul><label>  <br /><br /><br /><br /></label>
+     </div>
+
+}
+}

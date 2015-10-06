@@ -1,0 +1,38 @@
+﻿@model IEnumerable<listarproy.Models.ListUser>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Elige la lista que tiene los datos que quieres importar!</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        <hr />
+        <select name="idfrom" id="idfrom">
+            @foreach (var item in Model)
+            {
+                if (item.Id != ViewBag.id)
+                {
+                    ViewBag.itemName = item.Name;
+                    ViewBag.itemId = item.Id;
+                    <option value=@ViewBag.itemId>@ViewBag.itemName </option>}
+            }
+        </select>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Importar" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+    <div class="buttonboxback">
+        @Html.ActionLink("Regresar", "Index")
+        </div>
+

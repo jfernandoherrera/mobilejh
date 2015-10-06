@@ -1,0 +1,47 @@
+﻿@model IEnumerable<listarproy.Models.Scheduled>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Programa tu semana para generar registros de tus resultados!</h2>
+@if (ViewBag.Until < DateTime.Now)
+{
+    <div class="box">
+        @Html.ActionLink("Programa tu semana!", "Create", new { id = ViewBag.Listuser }, new { @style = "color: #000000;" })
+        </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Until)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Finished)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Until)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Finished)
+            </td>
+            <td>
+                <div class="rcorners6">
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="buttonboxback">
+    @Html.ActionLink("Regresar", "Index", "listas", new { Controller = "listas", id = ViewBag.Listuser }, null)
+</div>

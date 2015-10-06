@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Kaotiko\mobilejh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
+        <dex dex="C:\Users\Kaotiko\mobilejh\app\build\intermediates\pre-dexed\debug\classes-3c3e82cd95c3ca980b4bdaa797f872477dcf9447.jar" />
+    </item>
+
+</items>

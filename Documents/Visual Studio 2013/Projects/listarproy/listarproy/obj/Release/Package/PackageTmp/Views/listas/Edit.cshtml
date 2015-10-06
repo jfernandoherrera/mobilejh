@@ -1,0 +1,105 @@
+﻿@model listarproy.Models.lista
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style='clear:both; width: 370px;'>
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @if (@ViewBag.Type == 0)
+        {
+            <div class="form-group">
+                Nombre<div class="col-md-6">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.list, new { @Value = ViewBag.Listuser })
+            <div class="form-group">
+                Telefono<div class="col-md-6">
+                    @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Celular<div class="col-md-6">
+                    @Html.EditorFor(model => model.Cel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                E-mail<div class="col-md-6">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Otros<div class="col-md-6">
+                    @Html.EditorFor(model => model.Otros, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Otros, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.HiddenFor(model => model.Checked);
+                                                   int asd = 0;
+                                                   if (ViewBag.sched != null)
+                                                   {
+                                                       asd = ViewBag.sched;
+                                                   }
+
+                                                @Html.HiddenFor(sched => asd)
+            if (ViewBag.type != null)
+            {
+                asd = ViewBag.type;
+            }
+            @Html.HiddenFor(type => asd)
+        }
+        else
+        {
+            <div> Se cambiara el estado a chequeado al guardar</div>
+
+            @Html.HiddenFor(model => model.Name)
+            @Html.HiddenFor(model => model.list, new { @Value = ViewBag.Listuser })
+            @Html.HiddenFor(model => model.Tel)
+            @Html.HiddenFor(model => model.Checked, new { @Value = true })
+          @Html.HiddenFor(model => model.Cel)
+            @Html.HiddenFor(model => model.Otros)
+            @Html.HiddenFor(model => model.Email)
+            int asd = 0;
+            if (ViewBag.sched != null)
+            {
+                asd = ViewBag.sched;
+            }
+
+            @Html.HiddenFor(sched => asd)
+            if (ViewBag.type != null)
+            {
+                asd = ViewBag.type;
+            }
+            @Html.HiddenFor(type => asd)
+        }
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar cambios" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="buttonboxback">
+    @Html.ActionLink("Regresar", "Index", new { id = ViewBag.Listuser })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,129 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+.box {
+  background: #7ebf9d;
+  border-radius: 15px 50px;
+  cursor: pointer;
+  height: 95px;
+  line-height: 95px;
+  text-align: center;
+  transition-property: background, border-radius;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  width: 180px;
+  
+}
+.box:hover {
+  background: #8798d9;
+  border-radius: 50%;
+}
+.boxi {
+  background: #7ebf9d;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 95px;
+  line-height: 95px;
+  text-align: center;
+  transition-property: background, border-radius;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  width: 180px;
+  
+}
+.boxi:hover {
+  background: #8798d9;
+  border-radius: 50%;
+}
+.buttonboxback {
+    width: 150px;
+    height: 40px;
+    background-color: darkblue;
+    position: relative;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+
+.buttonboxback:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -17px;
+    border-style: solid;
+    border-width: 20px 20px 20px 0;
+    border-color: transparent darkblue transparent transparent;
+}
+.buttonboxback > a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font: bold 18px/40px Sans-Serif;
+}
+.buttonboxback:hover {
+    background-color: lightblue;
+}
+.tr {
+    border-radius: 25px; 
+    background: #D0D3E7; 
+    clear:both;
+     padding: 8px; 
+     margin-bottom: 3px;
+    }
+.grande {
+    font-size: 250%;
+}
+.footer{
+width: 960px;
+height: 150px;
+margin: -150px auto 0;
+}
+.th {
+        border-radius: 25px; 
+        width: 650px;
+        height: 40px; 
+        background: #8798d9;
+    }
+.rcorners6 {
+    border-radius: 15px 50px;
+    background: #C2C6E8;
+    padding: 8px; 
+    width: 90px;
+    height: 65px; 
+} 
+
+.rcorners5{
+    border-radius: 15px 50px;
+    background: #7ebf9d;
+    padding: 9px; 
+    width: 90px;
+    height: 65px; 
+} 
+.rcorners4 {
+    border-radius: 15px 50px;
+    background: rgba(247, 107, 107, 0.91);
+    padding: 9px; 
+    width: 90px;
+    height: 65px; 
+} 
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}

@@ -1,0 +1,42 @@
+﻿@model listarproy.Models.Scheduled
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Scheduled</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Until)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Until)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.list)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.list)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finished)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<listarproy.Models.lista>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.ListuserName</h2>
+
+
+@if (ViewBag.Until != null)
+{
+    ViewBag.NNUntil = ViewBag.Until;
+}
+else
+{
+    ViewBag.NNUntil = 0;
+}
+@if (ViewBag.listLength == 0)
+{
+    <div class="box">
+        @Html.ActionLink("Crear contacto nuevo", "Create", new { id = ViewBag.Listuser }, new { @style = "color: #000000; " })
+    </div>
+}
+else
+{
+    <div style='clear:both; width: 370px;'>
+
+        <div class="box" style='float:left'>
+            @Html.ActionLink("Crear contacto nuevo", "Create", new { id = ViewBag.Listuser }, new { @style = "color: #000000; " })
+        </div>
+        <div class="box" style='float:right'>
+            @Html.ActionLink("Programar semana!", "Index", "Scheduleds", new { Controller = "Scheduleds", id = ViewBag.Listuser }, new { @style = "color: #000000;" })
+        </div>
+    </div>
+
+
+
+    foreach (var item in Model)
+    {
+        <div class="tr">
+
+            <ul class="nav navbar-nav">
+                <li class="grande">
+                    @Html.DisplayFor(wibble => item.Name)
+                </li>
+
+
+                @if (item.Checked == false)
+                {
+                    <li class="rcorners4">@Html.ActionLink("llamar", "Edit", new { id = item.Id, type = 1, sched = ViewBag.NNUntil })</li>
+                }
+                else
+                {
+                    <li><p class="rcorners5"></p></li>
+                }
+                <li class="rcorners6">@Html.ActionLink("Ver", "Details", new { id = item.Id }) </li>
+                <li class="rcorners6">@Html.ActionLink("Editar", "Edit", new { id = item.Id, type = 0, sched = 0 })</li>
+                <li class="rcorners6">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
+            </ul><label>  <br /><br /><br /><br /></label>
+        </div>
+    }
+
+
+}
+<div class="buttonboxback">
+    @Html.ActionLink("Regresar", "Index", "ListUsers")
+</div>

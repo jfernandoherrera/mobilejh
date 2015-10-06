@@ -1,0 +1,65 @@
+﻿@using listarproy.Models
+@{
+    ViewBag.Title = "Crea y gestiona tus listas de contactos!";
+}
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div class="jumbotron">
+
+        <h1>ContactSoft</h1>
+        <p class="lead" style=" margin: 25px,0px;">Vamos!, empieza a gestionar tus listas.</p>
+
+        @Html.ActionLink("Ir a \n\r   Listas", "Index", "ListUsers", null,
+         new { @style = " color: gray; font-family: Impact; border-radius: 25px; background: #D0D3E7; padding: 20px; width: 77px; height: 64px; text-align: center;" })
+        <div class="row" style=" margin: 25px;">
+            <div class="col-sm-4"><h4>Crea tus listas facilmente, solo necesitas saber como quieres clasificar tus contactos.   ej. Activas </h4></div>
+            <div class="col-sm-4"><h4>Todas las herramientas necesarias para gestionar tus listas</h4></div>
+            <div class="col-sm-4"><h4>Genera registros de las llamadas finalizadas por cada semana, programando la semana para la lista solo con 2 clicks</h4></div>
+        </div>
+    </div>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3&appId=370286126480606";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-like" data-href="https://contactsoft.azurewebsites.net/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+}
+else
+{
+    <div class="jumbotron">
+        <h1>ContactSoft</h1>
+        <p class="lead" style=" margin: 25px,0px;">ContactSoft te permite crear y gestionar listas de diferentes maneras.</p>
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = " color: gray; font-family: Impact; border-radius: 25px; background: #D0D3E7; padding: 20px; width: 77px; height: 64px; text-align: center;" })
+        <div class="row" style=" margin: 25px;">
+            <div class="col-sm-3">
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>
+            <div class="col-sm-3"><h4>Crea tus listas facilmente, solo necesitas saber como quieres clasificar tus contactos.   ej. Activas </h4></div>
+            <div class="col-sm-3"><h4>Todas las herramientas necesarias para gestionar tus listas</h4></div>
+            <div class="col-sm-3"><h4>Genera registros de las llamadas finalizadas por cada semana, programando la semana para la lista solo con 2 clicks</h4></div>
+        </div>
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3&appId=370286126480606";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like" data-href="https://contactsoft.azurewebsites.net/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+  </div>
+    
+}
+
+
+
